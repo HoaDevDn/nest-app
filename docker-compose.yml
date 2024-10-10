@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:11.3-alpine
+    environment:
+      - POSTGRES_USER=hoadevdocker # tạo user hoadevdocker trong docker
+      - POSTGRES_DBNAME=nestjsdocker # tạo db name trong docker
+      - POSTGRES_PASSWORD=12345678 # tạo password để kết nối trong docker
+      - POSTGRES_PORT=5432 # tạo port trong docker
+    volumes:
+      - db:/var/lib/postgresql/data/
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - 5434:5432 # Chuyển port của docker sang 5434
+volumes:
+  db: # volumes tên volumes dùng cho file db.sql (có thể đổi tên file db.sql sang tên khác)
