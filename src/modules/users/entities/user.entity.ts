@@ -1,8 +1,8 @@
 import * as bcrypt from 'bcryptjs';
-import { Entity, Column, ManyToOne, OneToMany, BeforeInsert } from 'typeorm';
+import { BeforeInsert, Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { BaseEntity } from 'core/entities/base.entity';
 import { Role } from './role.entity'; // Import Role entity
 import { UserResetPassword } from './user-reset-password.entity';
-import { BaseEntity } from 'core/entities/base.entity';
 
 @Entity()
 export class User extends BaseEntity {

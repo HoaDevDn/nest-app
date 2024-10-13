@@ -1,6 +1,6 @@
-import { Entity, Column, ManyToOne, CreateDateColumn } from 'typeorm';
-import { User } from './user.entity';
+import { Column, CreateDateColumn, Entity, ManyToOne } from 'typeorm';
 import { BaseEntity } from 'core/entities/base.entity';
+import { User } from './user.entity';
 
 @Entity()
 export class UserResetPassword extends BaseEntity {

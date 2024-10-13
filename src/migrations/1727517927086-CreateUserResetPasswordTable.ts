@@ -1,8 +1,8 @@
 import {
-  Table,
-  QueryRunner,
-  TableForeignKey,
   MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
 } from 'typeorm';
 
 export class CreateUserResetPasswordTable1727517927086

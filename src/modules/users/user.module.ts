@@ -1,14 +1,14 @@
-import { JwtModule } from '@nestjs/jwt';
 import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserService } from './user.service';
-import { User } from './entities/user.entity';
+import { env } from 'configs/env.config';
+import { AuthController } from 'modules/auth/auth.controller';
 import { AuthService } from 'modules/auth/auth.service';
 import { JwtStrategy } from 'modules/auth/jwt-strategy';
-import { AuthController } from 'modules/auth/auth.controller';
 import { Role } from './entities/role.entity';
 import { UserResetPassword } from './entities/user-reset-password.entity';
-import { env } from 'configs/env.config';
+import { User } from './entities/user.entity';
+import { UserService } from './user.service';
 
 @Module({
   imports: [
