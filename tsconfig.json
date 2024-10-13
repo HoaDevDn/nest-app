@@ -18,7 +18,7 @@
     "noFallthroughCasesInSwitch": false,
     "baseUrl": "./src", // Set base URL to "src"
     "paths": {
-      "*": ["./*"] // ?Allow absolute imports from "src",
+      "~*": ["*"]
     }
   }
 }

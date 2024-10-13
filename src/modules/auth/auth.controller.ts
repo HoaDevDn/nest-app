@@ -1,15 +1,15 @@
 import {
-  Controller,
-  Post,
   Body,
+  Controller,
   HttpCode,
   HttpStatus,
+  Post,
   UseGuards,
 } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UserService } from 'modules/users/user.service';
-import { RegisterDto } from 'modules/users/dto/register.dto';
 import { LoginDto } from 'modules/users/dto/login.dto';
+import { RegisterDto } from 'modules/users/dto/register.dto';
+import { UserService } from 'modules/users/user.service';
+import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 
 @Controller('auth')

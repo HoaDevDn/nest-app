@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { User } from 'modules/users/entities/user.entity';
-import { Role } from 'modules/users/entities/role.entity';
 import { AppDataSource } from 'configs/orm.config';
+import { Role } from 'modules/users/entities/role.entity';
+import { User } from 'modules/users/entities/user.entity';
 
 export async function seedRoleAndUsers() {
   await AppDataSource.initialize();
@@ -45,6 +45,7 @@ export async function seedRoleAndUsers() {
 
   await userRepository.save(users);
 
+  // eslint-disable-next-line no-console
   console.log('Seed data inserted successfully');
   // process.exit(0);
 }
