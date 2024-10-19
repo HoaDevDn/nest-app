@@ -2,9 +2,10 @@ import { config as dotenvConfig } from 'dotenv';
 
 dotenvConfig({ path: '.env' });
 let isTest = process.env.NODE_ENV === 'test';
+const ROOT_PATH = process.cwd() + (isTest ? '/src' : '');
 
 export const env = {
-  ROOT_PATH: process.cwd() + (isTest ? './src' : ''),
+  ROOT_PATH,
   PORT: process.env.PORT || 3000,
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,
@@ -15,6 +16,6 @@ export const env = {
   DB_PASSWORD: process.env.DB_PASSWORD,
   DB_PORT: process.env.DB_PORT,
   DB_HOST: process.env.DB_HOST,
-  ENTITIES: [process.cwd() + '**/*.entity{.ts,.js}'],
-  MIGRATIONS: [process.cwd() + 'migrations/*{.ts,.js}'],
+  ENTITIES: [`${ROOT_PATH}/**/*.entity{.ts,.js}`],
+  MIGRATIONS: [`${ROOT_PATH}/migrations/*{.ts,.js}`],
 };
