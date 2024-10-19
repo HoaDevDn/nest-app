@@ -7,17 +7,17 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { LoginDto } from 'modules/users/dto/login.dto';
-import { RegisterDto } from 'modules/users/dto/register.dto';
-import { UserService } from 'modules/users/user.service';
-import { AuthService } from './auth.service';
+import { AuthenticationService } from './authentication.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { LoginDto } from '~modules/user/dto/login.dto';
+import { RegisterDto } from '~modules/user/dto/register.dto';
+import { UserService } from '~modules/user/user.service';
 
 @ApiTags('Authentication')
 @Controller('auth')
 export class AuthController {
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private userService: UserService,
   ) {}
 
