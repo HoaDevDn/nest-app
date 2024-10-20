@@ -32,7 +32,7 @@ export class CreateOrderTable1729395014155 implements MigrationInterface {
             default: 'now()',
           },
           {
-            name: 'userId',
+            name: 'customerId',
             type: 'uuid',
           },
           {
@@ -42,7 +42,7 @@ export class CreateOrderTable1729395014155 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            columnNames: ['userId'],
+            columnNames: ['customerId'],
             referencedTableName: 'user',
             referencedColumnNames: ['id'],
             onDelete: 'CASCADE',

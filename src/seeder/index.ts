@@ -77,6 +77,7 @@ export async function seed() {
   await roleRepository.save(roles);
 
   // Users
+  const AMOUNT_OF_ADMIN = 5;
   const users: User[] = [];
   for (const index of range(20)) {
     const user = userRepository.create({
@@ -84,7 +85,7 @@ export async function seed() {
       name: faker.person.fullName(),
       email: faker.internet.email(),
       password: 'Admin123@',
-      role: index < 5 ? adminRole : userRole,
+      role: index < AMOUNT_OF_ADMIN ? adminRole : userRole,
       status:
         index < 2
           ? UserStatusEnum.Active
@@ -120,7 +121,7 @@ export async function seed() {
       id: faker.string.uuid(),
       totalPrice: faker.number.float({ min: 1500, max: 99999 }),
       car: cars[random(0, listCars.length - 1)],
-      user: users[random(0, users.length - 1)],
+      customer: users[random(AMOUNT_OF_ADMIN, users.length - 1)],
     });
     orders.push(order);
   }
