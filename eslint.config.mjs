@@ -136,7 +136,7 @@ export default [
           skipComments: true,
         },
       ],
-      'max-params': [2, 3],
+      'max-params': [2, 4],
       'max-depth': [2, 4],
       'max-statements': [2, 30],
       'max-statements-per-line': [2, { max: 1 }],

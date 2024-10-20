@@ -8,8 +8,6 @@ import {
 export class CreateUserResetPasswordTable1727517927086
   implements MigrationInterface
 {
-  name = 'CreateUserResetPasswordTable1727517927086';
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     // Tạo bảng UserResetPassword
     await queryRunner.createTable(

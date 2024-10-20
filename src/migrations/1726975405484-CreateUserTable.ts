@@ -4,10 +4,9 @@ import {
   Table,
   TableForeignKey,
 } from 'typeorm';
+import { UserStatusEnum } from '~modules/users/user.enum';
 
 export class CreateUserTable1726975405484 implements MigrationInterface {
-  name = 'CreateUserTable1726975405484';
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     // Create "user" table
     await queryRunner.createTable(
@@ -35,20 +34,24 @@ export class CreateUserTable1726975405484 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'status',
+            type: 'int',
+            default: UserStatusEnum.Active,
+          },
+          {
             name: 'name',
             type: 'varchar',
-            length: '255',
             isNullable: true,
           },
           {
-            name: 'status',
-            type: 'int',
-            isNullable: false,
+            name: 'phone',
+            type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'roleId',
             type: 'uuid',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'updatedAt',
@@ -71,23 +74,33 @@ export class CreateUserTable1726975405484 implements MigrationInterface {
       'user',
       new TableForeignKey({
         columnNames: ['roleId'],
-        referencedColumnNames: ['id'],
         referencedTableName: 'role',
-        onDelete: 'NO ACTION',
-        onUpdate: 'NO ACTION',
+        referencedColumnNames: ['id'],
+        onDelete: 'CASCADE',
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    const table = await queryRunner.getTable('user_reset_password');
-    const foreignKey = table!.foreignKeys.find(
+    const userResetTable = await queryRunner.getTable('user_reset_password');
+    const userResetForeignKey = userResetTable!.foreignKeys.find(
       (fk) => fk.columnNames.indexOf('userId') !== -1,
     );
-    if (foreignKey) {
-      await queryRunner.dropForeignKey('user_reset_password', foreignKey);
+    if (userResetForeignKey) {
+      await queryRunner.dropForeignKey(
+        'user_reset_password',
+        userResetForeignKey,
+      );
     }
 
-    await queryRunner.dropTable('role');
+    const orderTable = await queryRunner.getTable('order');
+    const orderForeignKey = orderTable!.foreignKeys.find(
+      (fk) => fk.columnNames.indexOf('userId') !== -1,
+    );
+    if (orderForeignKey) {
+      await queryRunner.dropForeignKey('order', orderForeignKey);
+    }
+
+    await queryRunner.dropTable('user');
   }
 }
