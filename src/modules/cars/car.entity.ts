@@ -20,6 +20,6 @@ export class Car extends BaseEntity {
   @Column({ nullable: true })
   year: string;
 
-  @OneToMany(() => Order, (order) => order.user)
+  @OneToMany(() => Order, (order) => order.car)
   orders: Order[];
 }

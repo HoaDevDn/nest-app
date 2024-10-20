@@ -11,7 +11,6 @@ export class Order extends BaseEntity {
   @ManyToOne(() => Car, (car) => car.orders, { cascade: true })
   car: Car;
 
-  // @Column({ name: 'customerId' })
   @ManyToOne(() => User, (user) => user.orders, { cascade: true })
-  user: User;
+  customer: User;
 }

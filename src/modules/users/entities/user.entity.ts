@@ -39,6 +39,6 @@ export class User extends BaseEntity {
   @OneToMany(() => UserResetPassword, (resetPassword) => resetPassword.user)
   resetPasswords: UserResetPassword[];
 
-  @OneToMany(() => Order, (order) => order.user)
+  @OneToMany(() => Order, (order) => order.customer)
   orders: Order[];
 }
