@@ -1,14 +1,14 @@
 import { faker } from '@faker-js/faker/locale/vi';
 import { random, range } from 'lodash';
 import { DataSource } from 'typeorm';
-import { AppDataSource } from '~configs/orm.config';
-import { Car } from '~modules/cars/car.entity';
-import { CarStatusEnum } from '~modules/cars/car.enum';
-import { Order } from '~modules/orders/order.entity';
-import { Role } from '~modules/users/entities/role.entity';
-import { UserResetPassword } from '~modules/users/entities/user-reset-password.entity';
-import { User } from '~modules/users/entities/user.entity';
-import { UserStatusEnum } from '~modules/users/user.enum';
+import { AppDataSource } from 'configs/orm.config';
+import { Car } from 'modules/cars/car.entity';
+import { CarStatusEnum } from 'modules/cars/car.enum';
+import { Order } from 'modules/orders/order.entity';
+import { Role } from 'modules/users/entities/role.entity';
+import { UserResetPassword } from 'modules/users/entities/user-reset-password.entity';
+import { User } from 'modules/users/entities/user.entity';
+import { UserStatusEnum } from 'modules/users/user.enum';
 
 const listCars = [
   'Toyota Camry',

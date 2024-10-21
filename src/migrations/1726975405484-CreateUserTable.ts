@@ -4,7 +4,7 @@ import {
   Table,
   TableForeignKey,
 } from 'typeorm';
-import { UserStatusEnum } from '~modules/users/user.enum';
+import { UserStatusEnum } from 'modules/users/user.enum';
 
 export class CreateUserTable1726975405484 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {

@@ -1,10 +1,10 @@
 import * as bcrypt from 'bcryptjs';
 import { BeforeInsert, Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { BaseEntity } from 'core/entities/base.entity';
-import { UserStatusEnum } from '../user.enum';
+import { Order } from 'modules/orders/order.entity';
+import { UserStatusEnum } from 'modules/users/user.enum';
 import { Role } from './role.entity'; // Import Role entity
 import { UserResetPassword } from './user-reset-password.entity';
-import { Order } from '~modules/orders/order.entity';
 
 @Entity()
 export class User extends BaseEntity {

@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany } from 'typeorm';
 import { BaseEntity } from 'core/entities/base.entity';
+import { Order } from 'modules/orders/order.entity';
 import { CarStatusEnum } from './car.enum';
-import { Order } from '~modules/orders/order.entity';
 
 @Entity()
 export class Car extends BaseEntity {
