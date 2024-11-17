@@ -10,6 +10,7 @@ export class OrderService {
     @InjectRepository(Order)
     private orderRepository: Repository<Order>,
   ) {}
+
   async paginate(dto: PaginationDto) {
     const { page, limit } = dto;
     const [users, total] = await this.orderRepository.findAndCount({
