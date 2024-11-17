@@ -30,6 +30,7 @@ const config: DataSourceOptions = {
   // entities: [`${env.ROOT_PATH}/**/*.entity.{ts,js}`],
   // migrations: [`${env.ROOT_PATH}/migrations/*{.ts,.js}`],
   synchronize: false,
+  logging: true,
 };
 
 export default registerAs('typeorm', () => ({
